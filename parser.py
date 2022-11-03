@@ -100,6 +100,8 @@ def process_match(match: dict) -> dict:
     for bookmaker in bookmakers:
         platform = bookmaker['title']
         outcomes = bookmaker['markets'][0]['outcomes']
+        if len(outcomes) != len(results):
+            continue
         
         for i in range(len(outcomes)):
             if outcomes[i]['price'] > results[i]["price"]:
